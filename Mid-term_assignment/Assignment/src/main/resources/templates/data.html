@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+* {
+  font-family: Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.flexbox {
+  background: linear-gradient(155deg, #55c7ed, #2bb3e0, #3bc1ed);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-md-2{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.button_back {
+    display: inline-block;
+    padding: 0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#000000;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+}
+.button_back:hover{
+    border-color: rgba(255,255,255,1);
+}
+
+
+
+
+</style>
+<body>
+    <div class="flexbox" th:object="${aqs}">
+        <div class="row">
+            <div class="offset-md-1 col-md-10">
+              <h2 th:text="${aqs.city_name}"></h2>
+            </div>
+            <div class="col-md-12" style="margin-top: 2vh">
+              <div class="row justify-content-center">
+                <div class="col-md-2" >
+                    <h3>Mold level: </h3>
+                     <span th:text=" ${aqs.mold_level}"> </span>
+                </div>
+                <div class="col-md-2" >
+                    <h3>Aqi: </h3>
+                     <span th:text=" ${aqs.aqi}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>Pollen level grass: </h3>
+                     <span th:text=" ${aqs.pollen_level_grass}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>Pm25: </h3>
+                     <span th:text=" ${aqs.pm25}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>No2: </h3>
+                     <span th:text=" ${aqs.no2}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>Pollen level weed: </h3>
+                     <span th:text=" ${aqs.pollen_level_weed}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>Pollen level tree: </h3>
+                     <span th:text=" ${aqs.pollen_level_tree}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>So2: </h3>
+                     <span th:text=" ${aqs.so2}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>Pm10: </h3>
+                     <span th:text=" ${aqs.pm10}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>Co: </h3>
+                     <span th:text=" ${aqs.co}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>O3: </h3>
+                     <span th:text=" ${aqs.o3}"> </span> 
+                </div>
+                <div class="col-md-2" >
+                    <h3>Predominant pollen type: </h3>
+                     <span th:text=" ${aqs.predominant_pollen_type}"> </span> 
+                </div>
+              </div>
+            </div>
+            <input onclick='javascript:window.history.back()' value='Back' class="button_back" type='button' />
+    </div>
+  </body>
+   
+</body>
+
+</html>

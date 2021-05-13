@@ -1,68 +1,27 @@
 package tqs.Assignment;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 
 public class AirQualityStats {
-    @SerializedName("mold_level")
-    @Expose
+    
+   
     private int mold_level;
-    @SerializedName("aqi")
-    @Expose
     private int aqi;
-    @SerializedName("pm10")
-    @Expose
-    private float pm10;
-    @SerializedName("co")
-    @Expose
-    private float co;
-    @SerializedName("o2")
-    @Expose
+    private double pm10;
+    private double co;
     private int o3;
-    @SerializedName("predominant_pollen_type")
-    @Expose
     private String predominant_pollen_type;
-    @SerializedName("so2")
-    @Expose
-    private float so2;
-    @SerializedName("pollen_level_tree")
-    @Expose
+    private double so2;
     private int pollen_level_tree;
-    @SerializedName("pollen_level_weed")
-    @Expose
     private int pollen_level_weed;
-    @SerializedName("no2")
-    @Expose
-    private float no2;
-    @SerializedName("pm25")
-    @Expose
+    private double no2;
     private int pm25;
-    @SerializedName("pollen_level_grass")
-    @Expose
     private int pollen_level_grass;
-    @SerializedName("city_name")
-    @Expose
     private String city_name;
+    private Calendar ttl = Calendar.getInstance();
+    
+    
 
-    public AirQualityStats() {
-    }
-
-    public AirQualityStats(int mold_level, int aqi, float pm10, float co, int o3, String predominant_pollen_type, float so2, int pollen_level_tree, int pollen_level_weed, float no2, int pm25, int pollen_level_grass, String city_name) {
-        this.mold_level = mold_level;
-        this.aqi = aqi;
-        this.pm10 = pm10;
-        this.co = co;
-        this.o3 = o3;
-        this.predominant_pollen_type = predominant_pollen_type;
-        this.so2 = so2;
-        this.pollen_level_tree = pollen_level_tree;
-        this.pollen_level_weed = pollen_level_weed;
-        this.no2 = no2;
-        this.pm25 = pm25;
-        this.pollen_level_grass = pollen_level_grass;
-        this.city_name = city_name;
-    }
 
     public int getMold_level() {
         return this.mold_level;
@@ -70,6 +29,14 @@ public class AirQualityStats {
 
     public void setMold_level(int mold_level) {
         this.mold_level = mold_level;
+    }
+
+    public void setTtl(int ttl){
+        this.ttl.add(Calendar.MINUTE, ttl);
+    }
+
+    public Calendar getTtl(){
+        return this.ttl;
     }
 
     public int getAqi() {
@@ -80,19 +47,19 @@ public class AirQualityStats {
         this.aqi = aqi;
     }
 
-    public float getPm10() {
+    public double getPm10() {
         return this.pm10;
     }
 
-    public void setPm10(float pm10) {
+    public void setPm10(double pm10) {
         this.pm10 = pm10;
     }
 
-    public float getCo() {
+    public double getCo() {
         return this.co;
     }
 
-    public void setCo(float co) {
+    public void setCo(double co) {
         this.co = co;
     }
 
@@ -112,11 +79,11 @@ public class AirQualityStats {
         this.predominant_pollen_type = predominant_pollen_type;
     }
 
-    public float getSo2() {
+    public double getSo2() {
         return this.so2;
     }
 
-    public void setSo2(float so2) {
+    public void setSo2(double so2) {
         this.so2 = so2;
     }
 
@@ -136,11 +103,11 @@ public class AirQualityStats {
         this.pollen_level_weed = pollen_level_weed;
     }
 
-    public float getNo2() {
+    public double getNo2() {
         return this.no2;
     }
 
-    public void setNo2(float no2) {
+    public void setNo2(double no2) {
         this.no2 = no2;
     }
 
@@ -178,12 +145,12 @@ public class AirQualityStats {
         return this;
     }
 
-    public AirQualityStats pm10(float pm10) {
+    public AirQualityStats pm10(double pm10) {
         setPm10(pm10);
         return this;
     }
 
-    public AirQualityStats co(float co) {
+    public AirQualityStats co(double co) {
         setCo(co);
         return this;
     }
@@ -198,7 +165,7 @@ public class AirQualityStats {
         return this;
     }
 
-    public AirQualityStats so2(float so2) {
+    public AirQualityStats so2(double so2) {
         setSo2(so2);
         return this;
     }
@@ -213,7 +180,7 @@ public class AirQualityStats {
         return this;
     }
 
-    public AirQualityStats no2(float no2) {
+    public AirQualityStats no2(double no2) {
         setNo2(no2);
         return this;
     }
@@ -240,7 +207,7 @@ public class AirQualityStats {
         if (!(o instanceof AirQualityStats)) {
             return false;
         }
-        AirQualityStats airQualityStats = (AirQualityStats) o;
+        var airQualityStats = (AirQualityStats) o;
         return mold_level == airQualityStats.mold_level && aqi == airQualityStats.aqi && pm10 == airQualityStats.pm10 && co == airQualityStats.co && o3 == airQualityStats.o3 && Objects.equals(predominant_pollen_type, airQualityStats.predominant_pollen_type) && so2 == airQualityStats.so2 && pollen_level_tree == airQualityStats.pollen_level_tree && pollen_level_weed == airQualityStats.pollen_level_weed && no2 == airQualityStats.no2 && pm25 == airQualityStats.pm25 && pollen_level_grass == airQualityStats.pollen_level_grass && Objects.equals(city_name, airQualityStats.city_name);
     }
 

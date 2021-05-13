@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+* {
+  font-family: Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.flexbox {
+  background: linear-gradient(155deg, #55c7ed, #2bb3e0, #3bc1ed);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  margin: 20px;
+}
+
+.search > h3 {
+  font-weight: normal;
+}
+
+.search > h1,
+.search > h3 {
+  color: white;
+  margin-bottom: 15px;
+  text-shadow: 0 1px #0091c2;
+}
+
+.search > div {
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0 1px #0091c2);
+}
+
+.search > div:after {
+  content: "";
+  background: white;
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  top: 40px;
+  right: 2px;
+  transform: rotate(135deg);
+}
+
+.search > div > form >input {
+  color: white;
+  font-size: 16px;
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  border: solid 3px white;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.search > div > form > input::placeholder {
+  color: #efefef;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search > div > input:focus::placeholder {
+  opacity: 1;
+}
+
+.search > div > form >input:focus,
+.search > div > form > input:not(:placeholder-shown) {
+  width: 250px;
+}
+</style>
+<body>
+    
+
+    <div class="flexbox">
+        <div class="search">
+          <h1>Air Quality search</h1>
+          <h3>Click on search icon, then type your City or "Cache" for cache stats.</h3>
+          <div>
+            <form id="form" th:action="@{/}"  method="GET" onsubmit="changeAction()">
+                <input id="city" type="text" placeholder="Search . . ." required>
+            </form>
+             </div>
+        </div>
+      </div>
+
+
+  
+
+
+   <script>
+       function changeAction(){
+           let city = document.getElementById("city").value;
+           document.getElementById("form").action ="/"+city;
+           document.getElementById("form").submit(); 
+       }
+   </script>  
+</body>
+
+</html>
