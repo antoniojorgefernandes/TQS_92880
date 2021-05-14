@@ -65,11 +65,16 @@ public class Cache{
 
 
   
-    public String toStringNoCityInfo() {
+    
+
+    @Override
+    public String toString() {
         return "{" +
             " hits='" + getHits() + "'" +
             ", misses='" + getMisses() + "'" +
-            ", requests='" + getRequests()+"}";
+            ", requests='" + getRequests() + "'" +
+            ", info='" + getInfo() + "'" +
+            "}";
     }
 
 

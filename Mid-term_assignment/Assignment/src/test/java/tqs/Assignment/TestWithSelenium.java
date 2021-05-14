@@ -28,7 +28,7 @@ import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class TestWithSelenium {
+class TestWithSelenium {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -43,7 +43,7 @@ public class TestWithSelenium {
     driver.quit();
   }
   @Test
-  public void hw() {
+  void hw() {
     driver.get("http://localhost:8080/");
     driver.manage().window().setSize(new Dimension(1920, 1040));
     driver.findElement(By.id("city")).click();

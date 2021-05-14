@@ -50,7 +50,7 @@ public class AirQualityController{
     @GetMapping("/api/cache")
     @ResponseBody
     public String apiCacheStats(Model model) {
-       return this.cache.toStringNoCityInfo();
+       return this.cache.toString();
     }
 
     @GetMapping("/cache")
@@ -61,6 +61,7 @@ public class AirQualityController{
       
     @GetMapping(path="/{city}")
     public String city(@PathVariable(value = "city") String city, Model model) throws IOException{
+        city = city.toLowerCase();
         this.cache.selfClean();
         if(this.cache.getInfo().containsKey(city)){
             this.cache.hit();

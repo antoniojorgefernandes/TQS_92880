@@ -33,8 +33,6 @@ class TestCache {
 
         int real_hits = this.cache.getHits();
         assertEquals(expected, real_hits);
-
-
     }
 
     @Test
