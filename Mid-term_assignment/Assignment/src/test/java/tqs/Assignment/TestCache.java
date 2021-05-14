@@ -4,6 +4,8 @@ package tqs.Assignment;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -83,5 +85,52 @@ class TestCache {
 
         
     }
+
+    @Test
+    void afterTimeoutInfoIsRemoved(){
+        AirQualityStats aqs = new AirQualityStats();
+        HashMap<String,AirQualityStats> info = new HashMap<>();
+        aqs.setTtl(0);
+        info.put("Aveiro",aqs);
+        this.cache.setInfo(info);
+        this.cache.selfClean();
+        boolean contains =this.cache.getInfo().containsKey("Aveiro");
+        assertFalse(contains);
+    }
+
+    @Test
+    void testEquals(){
+        AirQualityStats aqs = new AirQualityStats();
+        AirQualityStats aqs2 = new AirQualityStats();
+        aqs2.setAqi(10);
+        aqs2.setCity_name("Aveiro");
+        aqs2.setCo(10.1);
+        aqs2.setSo2(10.2);
+        aqs2.setPollen_level_grass(11);
+        aqs2.setPollen_level_tree(12);
+        aqs2.setPollen_level_weed(13);
+        aqs2.setPm25(14);
+        aqs2.setMold_level(15);
+        aqs2.setNo2(10.3);
+        aqs2.setO3(16);
+        aqs2.setPm10(10.4);
+        aqs2.setPredominant_pollen_type("pollen type");
+        aqs.setAqi(10);
+        aqs.setCity_name("Aveiro");
+        aqs.setCo(10.1);
+        aqs.setSo2(10.2);
+        aqs.setPollen_level_grass(11);
+        aqs.setPollen_level_tree(12);
+        aqs.setPollen_level_weed(13);
+        aqs.setPm25(14);
+        aqs.setMold_level(15);
+        aqs.setNo2(10.3);
+        aqs.setO3(16);
+        aqs.setPm10(10.4);
+        aqs.setPredominant_pollen_type("pollen type");
+        boolean comparison = aqs.equals(aqs2);
+        assertTrue(comparison);
+    }
+
 
 }

@@ -135,70 +135,11 @@ public class AirQualityStats {
         this.city_name = city_name;
     }
 
-    public AirQualityStats mold_level(int mold_level) {
-        setMold_level(mold_level);
-        return this;
-    }
+    
 
-    public AirQualityStats aqi(int aqi) {
-        setAqi(aqi);
-        return this;
-    }
+    
 
-    public AirQualityStats pm10(double pm10) {
-        setPm10(pm10);
-        return this;
-    }
-
-    public AirQualityStats co(double co) {
-        setCo(co);
-        return this;
-    }
-
-    public AirQualityStats o3(int o3) {
-        setO3(o3);
-        return this;
-    }
-
-    public AirQualityStats predominant_pollen_type(String predominant_pollen_type) {
-        setPredominant_pollen_type(predominant_pollen_type);
-        return this;
-    }
-
-    public AirQualityStats so2(double so2) {
-        setSo2(so2);
-        return this;
-    }
-
-    public AirQualityStats pollen_level_tree(int pollen_level_tree) {
-        setPollen_level_tree(pollen_level_tree);
-        return this;
-    }
-
-    public AirQualityStats pollen_level_weed(int pollen_level_weed) {
-        setPollen_level_weed(pollen_level_weed);
-        return this;
-    }
-
-    public AirQualityStats no2(double no2) {
-        setNo2(no2);
-        return this;
-    }
-
-    public AirQualityStats pm25(int pm25) {
-        setPm25(pm25);
-        return this;
-    }
-
-    public AirQualityStats pollen_level_grass(int pollen_level_grass) {
-        setPollen_level_grass(pollen_level_grass);
-        return this;
-    }
-
-    public AirQualityStats city_name(String city_name) {
-        setCity_name(city_name);
-        return this;
-    }
+    
 
     @Override
     public boolean equals(Object o) {

@@ -65,15 +65,15 @@ html, body {
               <div class="row justify-content-center">
                 <div class="col-md-2" >
                     <h3>Hits: </h3>
-                     <span th:text=" ${cache.hits}"> </span> 
+                     <span id="hits" th:text=" ${cache.hits}"> </span> 
                 </div>
                 <div class="col-md-2" >
                     <h3>Misses: </h3>
-                     <span th:text=" ${cache.misses}"> </span> 
+                     <span id="misses" th:text=" ${cache.misses}"> </span> 
                 </div>
                 <div class="col-md-2" >
                     <h3>Requests: </h3>
-                     <span th:text=" ${cache.requests}"> </span> 
+                     <span id="requests" th:text=" ${cache.requests}"> </span> 
                 </div>
               </div>
             </div>
